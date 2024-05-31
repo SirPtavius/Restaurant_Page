@@ -4,3 +4,4 @@ import { initializePage } from "./initialize";
 document.addEventListener("DOMContentLoaded", (event) => {
   initializePage();
 });
+initializePage();
