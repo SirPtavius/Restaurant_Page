@@ -1,2 +1,6 @@
-import _ from "lodash";
-alert("Hello");
+import "./style.css";
+import { initializePage } from "./initialize";
+
+document.addEventListener("DOMContentLoaded", (event) => {
+  initializePage();
+});
