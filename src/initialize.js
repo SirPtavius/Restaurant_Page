@@ -3,40 +3,36 @@ import { insertMenu } from "./menu";
 import { insertAbout } from "./about";
 
 export function initializePage() {
+  const buttons = document.querySelectorAll("button");
+
+  function clearContent() {
+    const content = document.getElementById("content");
+    while (content.firstChild) {
+      content.removeChild(content.firstChild);
+    }
+  }
+
+  function handleButtonClick(contentFunction, activeButton) {
+    clearContent();
+    contentFunction();
+    buttons.forEach((button) => button.classList.remove("activePage"));
+    activeButton.classList.add("activePage");
+  }
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      if (button.classList.contains("home")) {
+        handleButtonClick(insertHome, button);
+      } else if (button.classList.contains("menu")) {
+        handleButtonClick(insertMenu, button);
+      } else if (button.classList.contains("about")) {
+        handleButtonClick(insertAbout, button);
+      }
+    });
+  });
+
+  // Call insertHome to set the initial screen to Home
+  clearContent();
   insertHome();
-  switchPage();
-}
-
-function switchPage() {
-  const content = document.getElementById("content");
-
-  const home = document.querySelector(".home");
-  const menu = document.querySelector(".menu");
-  const about = document.querySelector(".about");
-
-  home.style.color = "#FFB800";
-
-  home.addEventListener("click", () => {
-    content.innerHTML = "";
-    home.style.color = "#FFB800";
-    menu.style.color = "#FFFFFF";
-    about.style.color = "#FFFFFF";
-    insertHome();
-  });
-
-  menu.addEventListener("click", () => {
-    content.innerHTML = "";
-    home.style.color = "#FFFFFF";
-    menu.style.color = "#FFB800";
-    about.style.color = "#FFFFFF";
-    insertMenu();
-  });
-
-  about.addEventListener("click", () => {
-    content.innerHTML = "";
-    home.style.color = "#FFFFFF";
-    menu.style.color = "#FFFFFF";
-    about.style.color = "#FFB800";
-    insertAbout();
-  });
+  document.querySelector(".home").classList.add("activePage");
 }

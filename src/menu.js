@@ -1,4 +1,4 @@
-import backgroundImage from "./images/hamburger-4095155_1280.jpg";
+import backgroundImage from "./images/background_hamburger.jpg";
 
 export function insertMenu() {
   const content = document.getElementById("content");
@@ -68,6 +68,11 @@ export function insertMenu() {
   );
 
   content.appendChild(menuTab);
+  const background = document.createElement("img");
+  background.src = backgroundImage;
+  background.alt = "Hamburger Background";
+  background.classList.add("background");
+  content.appendChild(background);
 }
 
 insertMenu();

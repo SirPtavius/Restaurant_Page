@@ -1,12 +1,10 @@
-import backgroundImage from "./images/hamburger-4095155_1280.jpg";
+import backgroundImage from "./images/background_hamburger.jpg";
 
 export function insertHome() {
   const content = document.getElementById("content");
 
   const slogan = document.createElement("div");
   slogan.classList.add("slogan");
-
-  const br = document.createElement("br");
 
   const burst = document.createElement("span");
   const redefine = document.createElement("span");

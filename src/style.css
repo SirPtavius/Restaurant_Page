@@ -133,7 +133,8 @@ button:active {
   height: 600px;
   border-radius: 10px;
   background-color: rgba(248, 142, 4, 0.473);
-  padding: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .socialIcon {
@@ -142,10 +143,16 @@ button:active {
   transition: transform 0.3s;
   padding: 10px;
 }
-
+.socialMedia {
+  margin-top: 30px;
+}
 .socialIcon:hover {
   transform: scale(1.2);
 }
 .socialIcon:active {
   transform: scale(0.9);
+}
+.activePage {
+  color: red;
+  font-weight: bolder;
 }
